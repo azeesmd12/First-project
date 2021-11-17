@@ -22,12 +22,12 @@ module.exports.routes = {
   '/': { view: 'pages/homepage' },
 
 //ProductController
-
-'POST /product' : 'ProductController.createProduct',
-'GET /product' : 'ProductController.viewAllProduct',
-'GET /product/:id' : 'ProductController.viewSingleProduct',
-'PUT /product/:id' : 'ProductController.updateProduct',
-'DELETE /product/:id' : 'ProductController.deleteProduct',
+'GET /login'                : 'ProductController.loginverify',
+'POST /login/product'       : 'ProductController.createProduct',
+'GET /login/product'        : 'ProductController.viewAllProduct',
+'GET /login/product/:id'    : 'ProductController.viewSingleProduct',
+'PUT /login/product/:id'    : 'ProductController.updateProduct',
+'DELETE /login/product/:id' : 'ProductController.deleteProduct',
 
 
 };
