@@ -6,17 +6,8 @@
  */
 
 const ProductService = require("../services/ProductService");
-const jwt = require('jsonwebtoken');
 module.exports = {
 
-    loginVerify : async function (req,res) {
-        console.log("@controller ProductController @loginVerify"); 
-        let token = await jwt.sign(
-            {name:'products', isLoggedin : true},
-            'Don\'t share this secret code',{expiresIn : 60000});
-             console.log(token);
-             res.json(token) 
-    },
 
     createProduct : async (req,res)=>{
         console.log("@controller ProductController @createProduct", req.body);

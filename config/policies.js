@@ -18,12 +18,19 @@ module.exports.policies = {
   ***************************************************************************/
  '*' : true,
 
+ UsersController:{
+
+  '*' : 'isAdmin',
+'loginVerify' : true,
+'viewProfile': 'isLoggedIn',
+'updateProduct' : ['isAdmin','isLoggedIn']
+},
+
 ProductController:{
 
-  '*' : 'isLoggedIn',
-
-  'loginVerify': true
-
+              '*' : 'isLoggedIn',
+  'updateProduct' : 'isAdmin',
+  'deleteProduct' : 'isAdmin'
 }
 
 

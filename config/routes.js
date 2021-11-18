@@ -21,13 +21,20 @@ module.exports.routes = {
 
   '/': { view: 'pages/homepage' },
 
+//UsersController
+'POST /user/login'        : 'UsersController.loginverify',
+'POST /user/create'       : 'UsersController.createUser',
+'GET  /user/viewall'      : 'UsersController.viewAllUser',
+'GET /user/profile/:username'   : 'UsersController.viewProfile',
+'PUT /user/update/:id'    : 'UsersController.updateUser',
+'DELETE /user/delete/:id' : 'UsersController.deleteUser',
+
 //ProductController
-'GET /login'                : 'ProductController.loginverify',
-'POST /login/product'       : 'ProductController.createProduct',
-'GET /login/product'        : 'ProductController.viewAllProduct',
-'GET /login/product/:id'    : 'ProductController.viewSingleProduct',
-'PUT /login/product/:id'    : 'ProductController.updateProduct',
-'DELETE /login/product/:id' : 'ProductController.deleteProduct',
+'POST /product/create'        : 'ProductController.createProduct',
+'GET /product/viewall'        : 'ProductController.viewAllProduct',
+'GET /product/viewone/:id'    : 'ProductController.viewSingleProduct',
+'PUT /product/update//:id'    : 'ProductController.updateProduct',
+'DELETE /product/delete/:id'  : 'ProductController.deleteProduct',
 
 
 };
