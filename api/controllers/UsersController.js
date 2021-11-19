@@ -42,7 +42,7 @@ module.exports = {
     viewProfile : async (req,res)=>{
         console.log("@controller UsersController @viewOneUser",req.params);
         try {
-            let user = await UsersService.viewProfile(req.params,req.headers.authorization);
+            let user = await UsersService.viewProfile(req);
             return res.json(user);
         } catch (err) {
             console.log("@controller UsersController @viewOneUser Error", err);
@@ -64,7 +64,7 @@ module.exports = {
     deleteUser : async (req,res)=>{
         try {
             console.log("@controller UsersController @deleteUser",req.params);
-            let deletedUser = await UsersService.deleteUser(req.params);
+            let deletedUser = await UsersService.deleteUser(req.params).fetch();
             res.json(deletedUser);
         } catch (err) {
             console.log("@controller UsersController @deleteUser Error", err);

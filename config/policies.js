@@ -23,7 +23,7 @@ module.exports.policies = {
   '*' : 'isAdmin',
 'loginVerify' : true,
 'viewProfile': 'isLoggedIn',
-'updateProduct' : ['isAdmin','isLoggedIn']
+'updateUser' :'isLoggedIn'
 },
 
 ProductController:{

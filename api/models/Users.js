@@ -9,11 +9,13 @@ module.exports = {
 
   tableName : 'users',
   primaryKey: 'id',
+  fetchRecordsOnCreate: true,
+  fetchRecordsOnUpdate: true,
+  fetchRecordsOnDelete: true,
   attributes: {
 
     id:{
       type:'number',
-      required: true,
       unique:true,
       autoIncrement:true
     },
@@ -44,21 +46,36 @@ module.exports = {
     return await Users.find();
   },
   getProfile: async function(input,key) {
-    console.log("@model Users @method getOne :: input ", input);
-    if(key.username == input.username || key.role == 'admin')
+    console.log("@model Users @method getOne :: input ", input.params);
+    if(key.username == input.params.username || key.role == 'admin')
     {
       return await Users.findOne(input);
     }
     else{
-
       return {message:"Access Denied"};
     }
      
   },
-  edit: async function(input) {
+  edit: async function(input,key) {
     console.log("@model Users @method edit :: input ",input.params);
-    return await Users.update(input.params).set(input.body);
-    
+    if(key.username == input.params.username)
+    {
+      if(input.body.role)
+      {
+        return {message:"You are not authorized to change your role"}
+      }
+      return await Users.update(input.params)
+      .set({username : input.body.username,password : input.body.password});
+      
+    }
+    else if(key.role == 'admin')
+    {
+      return await Users.update(input.params).set(input.body);
+    }
+    else{
+      return {message:"Access Denied"}
+    }
+     
   },
   delete: async function(input){
     console.log("@model Users @method delete :: input ", input);

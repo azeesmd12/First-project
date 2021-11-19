@@ -26,7 +26,7 @@ module.exports.routes = {
 'POST /user/create'       : 'UsersController.createUser',
 'GET  /user/viewall'      : 'UsersController.viewAllUser',
 'GET /user/profile/:username'   : 'UsersController.viewProfile',
-'PUT /user/update/:id'    : 'UsersController.updateUser',
+'PUT /user/update/:username'    : 'UsersController.updateUser',
 'DELETE /user/delete/:id' : 'UsersController.deleteUser',
 
 //ProductController

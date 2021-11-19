@@ -27,16 +27,19 @@ module.exports = {
         console.log("@Service UsersService @method viewAllUser");
         return await Users.getAllUser();
     },
-    viewProfile: async function(input,token) {
-        console.log("@Service UsersService @method viewOneUser :: input",input);
-        let finalToken = token.split(' ')[1];
+    viewProfile: async function(input) {
+        console.log("@Service UsersService @method viewOneUser :: input",input.params);
+        let finalToken = input.headers.authorization.split(' ')[1];
         let key = jwt.decode(finalToken);
-        let finalKey = {username:[key.username],role:[key.role]}
+        let finalKey = {username:[key.username],role:[key.role]};
         return await Users.getProfile(input,finalKey);
     },
     updateUser: async function(input) {
         console.log("@Service UsersService @method updateUser :: input",input.params);
-        return await Users.edit(input);
+        let finalToken = input.headers.authorization.split(' ')[1];
+        let key = jwt.decode(finalToken);
+        let finalKey = {username:[key.username],role:[key.role]};
+        return await Users.edit(input,finalKey);
     },
     deleteUser: async function(input) {
         console.log("@Seriveces UsersService @method deleteUser :: input",input);
