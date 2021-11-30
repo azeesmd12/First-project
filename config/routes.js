@@ -36,5 +36,10 @@ module.exports.routes = {
 'PUT /product/update//:id'    : 'ProductController.updateProduct',
 'DELETE /product/delete/:id'  : 'ProductController.deleteProduct',
 
+//peopleController
+'GET /user/course'                   : 'PeopleController.getCourseDetails',
+'GET /user/assessment/:course_id'    : 'PeopleController.getAssessmentDetails',
+'GET /user/course/:user_id'          : 'PeopleController.getUserCourses',
+'GET /user/course/:course_id/:user_id': 'PeopleController.getCourseByCourseId', 
 
 };

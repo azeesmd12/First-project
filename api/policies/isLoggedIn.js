@@ -18,8 +18,8 @@ module.exports = async function (req, res, next) {
             }
             }
             catch (err) {
-            //sails.log.error("@Policy isLoggedIn @Method verify @Message Error:", err);
-            return res.badRequest({ message: "You are not authorized." });
+            sails.log.error("@Policy isLoggedIn @Method verify @Message Error:", err);
+            return res.badRequest(err);
 
         }
     }

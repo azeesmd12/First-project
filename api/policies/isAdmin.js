@@ -19,7 +19,7 @@ module.exports = async function (req, res, next) {
         } catch (err) {
 
             sails.log.error("@Policy isAdmin @Method verify @Message Error:", err);
-            return res.badRequest({ message: "You are not authorized." });
+            return res.badRequest(err);
 
         }
     }

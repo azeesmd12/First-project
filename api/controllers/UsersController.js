@@ -64,7 +64,7 @@ module.exports = {
     deleteUser : async (req,res)=>{
         try {
             console.log("@controller UsersController @deleteUser",req.params);
-            let deletedUser = await UsersService.deleteUser(req.params).fetch();
+            let deletedUser = await UsersService.deleteUser(req.params);
             res.json(deletedUser);
         } catch (err) {
             console.log("@controller UsersController @deleteUser Error", err);

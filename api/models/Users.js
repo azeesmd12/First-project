@@ -42,7 +42,7 @@ module.exports = {
     return await Users.create(input)
   },
   getAllUser: async function(){
-    console.log("@model Users @method getAllUser :: input ", input);
+    console.log("@model Users @method getAllUser :: input ");
     return await Users.find();
   },
   getProfile: async function(input,key) {
@@ -79,7 +79,7 @@ module.exports = {
   },
   delete: async function(input){
     console.log("@model Users @method delete :: input ", input);
-    return await Users.destroy(input);
+    return await Users.destroy(input.id);
   }
 
 };
